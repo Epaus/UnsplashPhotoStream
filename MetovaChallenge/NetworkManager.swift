@@ -16,17 +16,14 @@ protocol NetworkManagerDelegate {
 
 struct NetworkManager {
     
-    init() {
-        print("NetworkManager initializer")
-    }
-    
     var delegate: NetworkManagerDelegate?
     let unsplashURL = "https://api.unsplash.com/photos/?client_id=479b3f025820451936d039e20383dde0bfefac1bad05a06276e348d0fcb36f09"
     
     func fetchSearchText(searchText: String) {
-        let urlString = "\(unsplashURL)&q=\(searchText)"
-        
-        print("urlString = ", urlString)
+        var urlString = "\(unsplashURL)"
+        if searchText != "" {
+            urlString = urlString + String("&q=\(searchText)")
+        }
         performRequest(with: urlString)
     }
     

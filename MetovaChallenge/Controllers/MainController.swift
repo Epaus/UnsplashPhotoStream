@@ -12,17 +12,45 @@ import os.log
 class MainController: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    
     var networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         networkManager.delegate = self
+        networkManager.fetchSearchText(searchText: "")
+    }
+}
+
+extension MainController: UITableViewDelegate {
+    
+}
+
+extension MainController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
+                                                 for: indexPath)
+               cell.selectionStyle = .none
+       // cell.textLabel?.text = model.description ?? model.alt_description ?? "no description"
+        return cell
     }
 }
 
 extension MainController: NetworkManagerDelegate {
-    func didUpdateImages(imageModels images: [ImageModel]) {
-        print("images = ", images)
+    func didUpdateImages(imageModels: [ImageModel]) {
+        print(imageModels)
     }
     
     func didFailUpdate(error: Error) {
