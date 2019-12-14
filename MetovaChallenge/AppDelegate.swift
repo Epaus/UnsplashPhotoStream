@@ -12,14 +12,18 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    var networkManager = NetworkManager()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
          window = UIWindow(frame: UIScreen.main.bounds)
                window?.makeKeyAndVisible()
-               window?.rootViewController =  MainController()
-               return true
+        networkManager.fetchSearchText(searchText: "")
+        let mainController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main" )
+       // mainController.networkManager = networkManager
+        window?.rootViewController =  mainController
+        return true
     }
 
     // MARK: UISceneSession Lifecycle

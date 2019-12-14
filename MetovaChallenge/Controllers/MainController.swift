@@ -10,22 +10,44 @@ import UIKit
 import os.log
 
 class MainController: UIViewController {
-
+    
     @IBOutlet weak var searchTextField: UITextField!
+    
     @IBOutlet weak var tableView: UITableView!
     
-    var networkManager = NetworkManager()
+    
+    var networkManager: NetworkManager?
+    var imageList = [ImageModel]()
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        networkManager = NetworkManager.shared
+         tableView.register(ImageListTableViewCell.self, forCellReuseIdentifier: Constants.cellId)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTable), name:.ImageModelListUpdatedNotification, object: nil)
+    }
+    
+   
+    
+    @objc func updateTable(notification: Notification) {
+        print("updateTable")
+        imageList = notification.object as! [ImageModel]
        
-        networkManager.delegate = self
-        networkManager.fetchSearchText(searchText: "")
+        DispatchQueue.main.async {
+            //self.tableView.layoutIfNeeded()
+            self.tableView.reloadData()
+            
+        }
+        
     }
 }
 
 extension MainController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
 
 extension MainController: UITableViewDataSource {
@@ -35,15 +57,19 @@ extension MainController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return imageList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
-                                                 for: indexPath)
+       
+        let model = imageList[indexPath.row]
+        print("model.description = ",model.description ?? "where is description?!")
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId,
+                                                 for: indexPath) as! ImageListTableViewCell 
                cell.selectionStyle = .none
-       // cell.textLabel?.text = model.description ?? model.alt_description ?? "no description"
+        cell.model = model ?? ImageModel(id: "1111", description: "dummy description", alt_description: "dummy alt_description", regularURL: "", thumbnailURL: "", likes: 2, thumbnailImage: nil, regularImage: nil)
+//        cell.descriptionLabel?.text = model.description ?? model.alt_description ?? "no description"
+//        cell.photographerLabel?.text = model.alt_description
         return cell
     }
 }
@@ -62,9 +88,10 @@ extension MainController: UITextFieldDelegate {
     
     @IBAction func searchButtonPressed(_ sender: Any) {
         searchTextField.endEditing(true)
+        guard let nManager = networkManager else { return }
         if let searchText = searchTextField.text {
             let text = searchText.replacingOccurrences(of: " ", with: "-")
-            networkManager.fetchSearchText(searchText: text)
+            nManager.fetchSearchText(searchText: text)
         }
     }
     

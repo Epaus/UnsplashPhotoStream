@@ -14,8 +14,13 @@ protocol NetworkManagerDelegate {
     func didFailUpdate(error: Error)
 }
 
-struct NetworkManager {
-    
+class NetworkManager {
+    static let shared = NetworkManager()
+    var models:  [ImageModel] = [] {
+        didSet {
+            NotificationCenter.default.post(name: .ImageModelListUpdatedNotification, object: models )
+        }
+    }
     var delegate: NetworkManagerDelegate?
     let unsplashURL = "https://api.unsplash.com/photos/?client_id=479b3f025820451936d039e20383dde0bfefac1bad05a06276e348d0fcb36f09"
     
@@ -35,13 +40,8 @@ struct NetworkManager {
                     self.delegate?.didFailUpdate(error: error!)
                     return
                 }
-                if let jsonData = data,
-                    let imageModelArray = self.parseJSON(jsonData) {
-                    if let delegate = self.delegate {
-                        delegate.didUpdateImages(imageModels: imageModelArray)
-                    } else {
-                        print("delegate is nil")
-                    }
+                if let jsonData = data {
+                    self.models  = self.parseJSON(jsonData) ?? [ImageModel]()
                 }
             }
             task.resume()
@@ -62,9 +62,9 @@ struct NetworkManager {
                 let thumbnail = url.thumb
                 let likes = data.likes
                 
-                let image = ImageModel(id: id, description: description, alt_description: alt_description, regularURL: regular, thumbnailURL: thumbnail, likes: likes)
-                imageArray.append(image)
+                let image = ImageModel(id: id, description: description, alt_description: alt_description, regularURL: regular, thumbnailURL: thumbnail, likes: likes, thumbnailImage: nil, regularImage: nil)
                 
+                imageArray.append(image)
             }
             
             return imageArray

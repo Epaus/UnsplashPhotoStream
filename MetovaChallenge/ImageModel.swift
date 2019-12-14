@@ -6,7 +6,7 @@
 //  Copyright © 2019 Paus Productions. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct ImageModel {
     let id: String?
@@ -15,4 +15,6 @@ struct ImageModel {
     let regularURL: String?
     let thumbnailURL: String?
     var likes: Int
+    let thumbnailImage: UIImage?
+    let regularImage: UIImage?
 }

@@ -19,6 +19,9 @@
 		CEE9544323A2D40300DBD9CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE9544123A2D40300DBD9CC /* LaunchScreen.storyboard */; };
 		CEE9544E23A2D40300DBD9CC /* MetovaChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9544D23A2D40300DBD9CC /* MetovaChallengeTests.swift */; };
 		CEE9545923A2D40300DBD9CC /* MetovaChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9545823A2D40300DBD9CC /* MetovaChallengeUITests.swift */; };
+		CEF12CE223A5699B00E4C655 /* Notification-Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE123A5699B00E4C655 /* Notification-Name.swift */; };
+		CEF12CE423A57A9900E4C655 /* ImageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE323A57A9900E4C655 /* ImageListTableViewCell.swift */; };
+		CEF12CE623A5829300E4C655 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE523A5829300E4C655 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		CEE9545423A2D40300DBD9CC /* MetovaChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetovaChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE9545823A2D40300DBD9CC /* MetovaChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetovaChallengeUITests.swift; sourceTree = "<group>"; };
 		CEE9545A23A2D40300DBD9CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF12CE123A5699B00E4C655 /* Notification-Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification-Name.swift"; sourceTree = "<group>"; };
+		CEF12CE323A57A9900E4C655 /* ImageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListTableViewCell.swift; sourceTree = "<group>"; };
+		CEF12CE523A5829300E4C655 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				CE72F16E23A446A6000F7E5A /* UIImageView.swift */,
+				CEF12CE123A5699B00E4C655 /* Notification-Name.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -117,10 +124,11 @@
 			children = (
 				CEE9543323A2D3FF00DBD9CC /* AppDelegate.swift */,
 				CEE9543523A2D3FF00DBD9CC /* SceneDelegate.swift */,
+				CEF12CDE23A552AF00E4C655 /* Managers */,
 				CE72F16723A445FE000F7E5A /* Extensions */,
-				CEE9546923A2D5C900DBD9CC /* View */,
+				CEE9546923A2D5C900DBD9CC /* Views */,
 				CEE9546723A2D48A00DBD9CC /* Controllers */,
-				CEE9546623A2D47300DBD9CC /* Model */,
+				CEE9546623A2D47300DBD9CC /* Models */,
 				CEE9546823A2D4E600DBD9CC /* Additional Files */,
 			);
 			path = MetovaChallenge;
@@ -144,14 +152,13 @@
 			path = MetovaChallengeUITests;
 			sourceTree = "<group>";
 		};
-		CEE9546623A2D47300DBD9CC /* Model */ = {
+		CEE9546623A2D47300DBD9CC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE72F16123A427D2000F7E5A /* NetworkManager.swift */,
 				CE72F16323A4281F000F7E5A /* ImageModel.swift */,
 				CE72F16523A42851000F7E5A /* ImageData.swift */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		CEE9546723A2D48A00DBD9CC /* Controllers */ = {
@@ -168,16 +175,26 @@
 				CEE9543F23A2D40300DBD9CC /* Assets.xcassets */,
 				CEE9544123A2D40300DBD9CC /* LaunchScreen.storyboard */,
 				CEE9544423A2D40300DBD9CC /* Info.plist */,
+				CEF12CE523A5829300E4C655 /* Constants.swift */,
 			);
 			name = "Additional Files";
 			sourceTree = "<group>";
 		};
-		CEE9546923A2D5C900DBD9CC /* View */ = {
+		CEE9546923A2D5C900DBD9CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CEE9543923A2D3FF00DBD9CC /* Main.storyboard */,
+				CEF12CE323A57A9900E4C655 /* ImageListTableViewCell.swift */,
 			);
-			name = View;
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CEF12CDE23A552AF00E4C655 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CE72F16123A427D2000F7E5A /* NetworkManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,9 +329,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE72F16223A427D2000F7E5A /* NetworkManager.swift in Sources */,
+				CEF12CE623A5829300E4C655 /* Constants.swift in Sources */,
+				CEF12CE423A57A9900E4C655 /* ImageListTableViewCell.swift in Sources */,
 				CE72F16423A4281F000F7E5A /* ImageModel.swift in Sources */,
 				CE72F16F23A446A6000F7E5A /* UIImageView.swift in Sources */,
 				CEE9543823A2D3FF00DBD9CC /* MainController.swift in Sources */,
+				CEF12CE223A5699B00E4C655 /* Notification-Name.swift in Sources */,
 				CEE9543423A2D3FF00DBD9CC /* AppDelegate.swift in Sources */,
 				CEE9543623A2D3FF00DBD9CC /* SceneDelegate.swift in Sources */,
 				CE72F16623A42851000F7E5A /* ImageData.swift in Sources */,
