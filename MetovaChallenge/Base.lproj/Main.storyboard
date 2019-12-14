@@ -45,7 +45,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="100" id="Yq3-Po-yaj" customClass="ImageListTableViewCell" customModule="MetovaChallenge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="100" id="Yq3-Po-yaj" customClass="ImageListTableViewCell" customModule="MetovaChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yq3-Po-yaj" id="mIF-cm-9F1">
@@ -55,8 +55,8 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="x71-nh-mG8">
                                                     <rect key="frame" x="10" y="5" width="323" height="90"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:Crj-3A-nP8:image" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Crj-3A-nP8">
-                                                            <rect key="frame" x="0.0" y="1" width="90" height="87.5"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:Crj-3A-nP8:image" translatesAutoresizingMaskIntoConstraints="NO" id="Crj-3A-nP8">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="90" id="Ygw-OB-JpF"/>
                                                                 <constraint firstAttribute="width" constant="90" id="qTw-ib-JRg"/>
@@ -125,7 +125,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="imageView:Crj-3A-nP8:image" catalog="system" width="64" height="46">
+        <image name="imageView:Crj-3A-nP8:image" width="64" height="46">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
 S2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBELDBscIRkmKisyNThCSktPUlUkbnVsbNcNDg8QERITFBUW

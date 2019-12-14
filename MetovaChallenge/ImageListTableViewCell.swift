@@ -14,7 +14,12 @@ class ImageListTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var photographerLabel: UILabel!
     
-    var model : ImageModel?
+    var model : ImageModel? {
+        didSet {
+            descriptionLabel.text = model?.description ?? model?.alt_description
+            photographerLabel.text = model?.description ?? "photographer's name"
+        }
+    }
     
 
     override func awakeFromNib() {
@@ -23,6 +28,9 @@ class ImageListTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    func configureCell() {
+        backgroundColor = .clear
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

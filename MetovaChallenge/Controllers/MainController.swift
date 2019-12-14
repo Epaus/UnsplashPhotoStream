@@ -25,7 +25,8 @@ class MainController: UIViewController {
         super.viewDidLoad()
         
         networkManager = NetworkManager.shared
-         tableView.register(ImageListTableViewCell.self, forCellReuseIdentifier: Constants.cellId)
+        tableView.delegate = self
+        tableView.dataSource = self
         NotificationCenter.default.addObserver(self, selector: #selector(updateTable), name:.ImageModelListUpdatedNotification, object: nil)
     }
     
@@ -36,7 +37,7 @@ class MainController: UIViewController {
         imageList = notification.object as! [ImageModel]
        
         DispatchQueue.main.async {
-            //self.tableView.layoutIfNeeded()
+           
             self.tableView.reloadData()
             
         }
@@ -66,10 +67,10 @@ extension MainController: UITableViewDataSource {
         print("model.description = ",model.description ?? "where is description?!")
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId,
                                                  for: indexPath) as! ImageListTableViewCell 
-               cell.selectionStyle = .none
-        cell.model = model ?? ImageModel(id: "1111", description: "dummy description", alt_description: "dummy alt_description", regularURL: "", thumbnailURL: "", likes: 2, thumbnailImage: nil, regularImage: nil)
-//        cell.descriptionLabel?.text = model.description ?? model.alt_description ?? "no description"
-//        cell.photographerLabel?.text = model.alt_description
+               cell.selectionStyle = .default
+        cell.configureCell()
+        cell.model = model 
+
         return cell
     }
 }
