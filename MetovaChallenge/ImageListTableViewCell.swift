@@ -10,11 +10,7 @@ import UIKit
 
 class ImageListTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var thumbnailPhotoView: UIImageView!  {
-        didSet {
-            print("image loaded!")
-        }
-    }
+    @IBOutlet weak var thumbnailPhotoView: UIImageView!  
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var photographerLabel: UILabel!
     

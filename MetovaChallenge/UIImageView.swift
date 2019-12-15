@@ -7,23 +7,19 @@
 //
 
 import UIKit
+import os.log
 
 extension UIImageView {
     func getImage(name: String)  {
         let request = URL(string: name)
         URLSession.shared.dataTask(with: request!, completionHandler:  { (data, response, error)  in
             if error != nil {
-                print("ERROR: \(error!)")
+                os_log("ERROR: %@", error!.localizedDescription)
                 return
             }
-            
             DispatchQueue.main.async(execute: {
                 let image = UIImage(data: data!)!
                 self.image = image
-                print("I have an image")
-                // appending the image to an array so that I only have to download it once.
-                //Images.shared.images.append(image)
-
             })
         }).resume()
     }
