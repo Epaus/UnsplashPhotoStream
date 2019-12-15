@@ -17,11 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-         window = UIWindow(frame: UIScreen.main.bounds)
-               window?.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
         networkManager.fetchSearchText(searchText: "")
         let mainController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main" )
-       // mainController.networkManager = networkManager
+
         window?.rootViewController =  mainController
         return true
     }

@@ -15,6 +15,14 @@ struct ImageModel {
     let regularURL: String?
     let thumbnailURL: String?
     var likes: Int
-    let thumbnailImage: UIImage?
-    let regularImage: UIImage?
+    
+    func stripURL(url:String) -> String {
+        var newURL = String()
+      
+        if let index = url.range(of: "?")?.lowerBound {
+            let substring = url[..<index]
+            newURL = String(substring)
+        }
+        return newURL
+    }
 }

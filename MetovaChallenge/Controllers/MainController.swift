@@ -15,8 +15,7 @@ class MainController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    var blurView: UIView = UIView()
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var activityIndicator = ActivityIndicatorView()
     
     var networkManager: NetworkManager?
     var imageList = [ImageModel]()
@@ -24,7 +23,7 @@ class MainController: UIViewController {
 // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        showActivityIndicator(uiView: self.view)
+        activityIndicator.showActivityIndicator(uiView: self.view)
         networkManager = NetworkManager.shared
         tableView.delegate = self
         tableView.dataSource = self
@@ -36,7 +35,7 @@ class MainController: UIViewController {
        
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            self.hideActivityIndicator()
+            self.activityIndicator.hideActivityIndicator()
         }
     }
 }
@@ -71,9 +70,21 @@ extension MainController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("WhooHoo last thing to do")
+        let imageModel = imageList[indexPath.row]
+        let url = imageModel.stripURL(url: imageModel.regularURL ?? "")
+        
+        let imageDisplay = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageDisplay") as! ImageDisplayController
+        imageDisplay.imageURL = url
+        self.present(imageDisplay, animated: false, completion: {
+            if url.count > 0 {
+                imageDisplay.activityIndicator.showActivityIndicator(uiView: imageDisplay.view)
+                imageDisplay.imageView.getImage(name: url)
+                   }
+        })
     }
+
 }
+
 //MARK: NetworkManagerDelegate
 extension MainController: NetworkManagerDelegate {
     func didUpdateImages(imageModels: [ImageModel]) {
@@ -112,27 +123,27 @@ extension MainController: UITextFieldDelegate {
 }
 
 //MARK: ActivityIndicatorProtocol
-extension MainController: ActivityIndicatorProtocol {
-    
-    func showActivityIndicator(uiView: UIView) {
-          
-          let blurEffect = UIBlurEffect(style: .light)
-          blurView = UIVisualEffectView(effect: blurEffect)
-          blurView.frame = uiView.frame
-          blurView.center = uiView.center
-
-          activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
-          activityIndicator.style = UIActivityIndicatorView.Style.large
-          activityIndicator.center = uiView.center
-          activityIndicator.color = .darkGray
-          
-          view.addSubview(blurView)
-          view.addSubview(activityIndicator)
-          activityIndicator.startAnimating()
-      }
-      
-      func hideActivityIndicator() {
-          activityIndicator.stopAnimating()
-          blurView.removeFromSuperview()
-      }
-}
+//extension MainController: ActivityIndicatorProtocol {
+//
+//    func showActivityIndicator(uiView: UIView) {
+//
+//          let blurEffect = UIBlurEffect(style: .light)
+//          blurView = UIVisualEffectView(effect: blurEffect)
+//          blurView.frame = uiView.frame
+//          blurView.center = uiView.center
+//
+//          activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
+//          activityIndicator.style = UIActivityIndicatorView.Style.large
+//          activityIndicator.center = uiView.center
+//          activityIndicator.color = .darkGray
+//
+//          view.addSubview(blurView)
+//          view.addSubview(activityIndicator)
+//          activityIndicator.startAnimating()
+//      }
+//
+//      func hideActivityIndicator() {
+//          activityIndicator.stopAnimating()
+//          blurView.removeFromSuperview()
+//      }
+//}

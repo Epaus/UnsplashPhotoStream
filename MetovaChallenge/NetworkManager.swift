@@ -62,7 +62,7 @@ class NetworkManager {
                 let thumbnail = url.thumb
                 let likes = data.likes
                 
-                let image = ImageModel(id: id, description: description, alt_description: alt_description, regularURL: regular, thumbnailURL: thumbnail, likes: likes, thumbnailImage: nil, regularImage: nil)
+                let image = ImageModel(id: id, description: description, alt_description: alt_description, regularURL: regular, thumbnailURL: thumbnail, likes: likes)
                 
                 imageArray.append(image)
             }

@@ -18,10 +18,6 @@ class ImageListTableViewCell: UITableViewCell {
         didSet {
             descriptionLabel.text = model?.description ?? model?.alt_description
             photographerLabel.text = model?.description ?? "photographer's name"
-            if model?.thumbnailImage == nil {
-                thumbnailPhotoView.image = UIImage(systemName: "photo")
-                thumbnailPhotoView.tintColor = .gray
-            }
         }
     }
     

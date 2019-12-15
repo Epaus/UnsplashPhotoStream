@@ -10,6 +10,7 @@ import UIKit
 import os.log
 
 extension UIImageView {
+    
     func getImage(name: String)  {
         let request = URL(string: name)
         URLSession.shared.dataTask(with: request!, completionHandler:  { (data, response, error)  in
@@ -20,6 +21,7 @@ extension UIImageView {
             DispatchQueue.main.async(execute: {
                 let image = UIImage(data: data!)!
                 self.image = image
+                NotificationCenter.default.post(name: .ImageViewSetNotification, object: nil )
             })
         }).resume()
     }
