@@ -32,10 +32,6 @@ class ImageListTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func configureCell() {
-        backgroundColor = .clear
-    }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainController.swift
 //  MetovaChallenge
 //
 //  Created by Estelle Paus on 12/12/19.
@@ -10,47 +10,44 @@ import UIKit
 import os.log
 
 class MainController: UIViewController {
-    
+
+//MARK: Properties
     @IBOutlet weak var searchTextField: UITextField!
-    
     @IBOutlet weak var tableView: UITableView!
     
+    var blurView: UIView = UIView()
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var networkManager: NetworkManager?
     var imageList = [ImageModel]()
     
-
-    
+// MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        showActivityIndicator(uiView: self.view)
         networkManager = NetworkManager.shared
         tableView.delegate = self
         tableView.dataSource = self
         NotificationCenter.default.addObserver(self, selector: #selector(updateTable), name:.ImageModelListUpdatedNotification, object: nil)
     }
     
-   
-    
     @objc func updateTable(notification: Notification) {
-        print("updateTable")
         imageList = notification.object as! [ImageModel]
        
         DispatchQueue.main.async {
-           
             self.tableView.reloadData()
-            
+            self.hideActivityIndicator()
         }
-        
     }
 }
-
+//MARK: UITableViewDelegate
 extension MainController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }
 
+//MARK: UITableviewDataSource
 extension MainController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,17 +61,15 @@ extension MainController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let model = imageList[indexPath.row]
-        print("model.description = ",model.description ?? "where is description?!")
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId,
                                                  for: indexPath) as! ImageListTableViewCell 
                cell.selectionStyle = .default
-        cell.configureCell()
         cell.model = model 
 
         return cell
     }
 }
-
+//MARK: NetworkManagerDelegate
 extension MainController: NetworkManagerDelegate {
     func didUpdateImages(imageModels: [ImageModel]) {
         print(imageModels)
@@ -85,6 +80,7 @@ extension MainController: NetworkManagerDelegate {
     }
 }
 
+//MARK: UITextFieldDelegate
 extension MainController: UITextFieldDelegate {
     
     @IBAction func searchButtonPressed(_ sender: Any) {
@@ -110,3 +106,28 @@ extension MainController: UITextFieldDelegate {
     }
 }
 
+//MARK: ActivityIndicatorProtocol
+extension MainController: ActivityIndicatorProtocol {
+    
+    func showActivityIndicator(uiView: UIView) {
+          
+          let blurEffect = UIBlurEffect(style: .light)
+          blurView = UIVisualEffectView(effect: blurEffect)
+          blurView.frame = uiView.frame
+          blurView.center = uiView.center
+
+          activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
+          activityIndicator.style = UIActivityIndicatorView.Style.large
+          activityIndicator.center = uiView.center
+          activityIndicator.color = .darkGray
+          
+          view.addSubview(blurView)
+          view.addSubview(activityIndicator)
+          activityIndicator.startAnimating()
+      }
+      
+      func hideActivityIndicator() {
+          activityIndicator.stopAnimating()
+          blurView.removeFromSuperview()
+      }
+}

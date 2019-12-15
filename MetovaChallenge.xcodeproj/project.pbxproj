@@ -22,6 +22,7 @@
 		CEF12CE223A5699B00E4C655 /* Notification-Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE123A5699B00E4C655 /* Notification-Name.swift */; };
 		CEF12CE423A57A9900E4C655 /* ImageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE323A57A9900E4C655 /* ImageListTableViewCell.swift */; };
 		CEF12CE623A5829300E4C655 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE523A5829300E4C655 /* Constants.swift */; };
+		CEF12CEF23A5C5EB00E4C655 /* ActivityIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CEE23A5C5EB00E4C655 /* ActivityIndicatorProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		CEF12CE123A5699B00E4C655 /* Notification-Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification-Name.swift"; sourceTree = "<group>"; };
 		CEF12CE323A57A9900E4C655 /* ImageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListTableViewCell.swift; sourceTree = "<group>"; };
 		CEF12CE523A5829300E4C655 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CEF12CEE23A5C5EB00E4C655 /* ActivityIndicatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				CEE9543323A2D3FF00DBD9CC /* AppDelegate.swift */,
 				CEE9543523A2D3FF00DBD9CC /* SceneDelegate.swift */,
+				CEF12CEB23A5C58700E4C655 /* Protocols */,
 				CEF12CDE23A552AF00E4C655 /* Managers */,
 				CE72F16723A445FE000F7E5A /* Extensions */,
 				CEE9546923A2D5C900DBD9CC /* Views */,
@@ -195,6 +198,14 @@
 				CE72F16123A427D2000F7E5A /* NetworkManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		CEF12CEB23A5C58700E4C655 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CEF12CEE23A5C5EB00E4C655 /* ActivityIndicatorProtocol.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +348,7 @@
 				CEF12CE223A5699B00E4C655 /* Notification-Name.swift in Sources */,
 				CEE9543423A2D3FF00DBD9CC /* AppDelegate.swift in Sources */,
 				CEE9543623A2D3FF00DBD9CC /* SceneDelegate.swift in Sources */,
+				CEF12CEF23A5C5EB00E4C655 /* ActivityIndicatorProtocol.swift in Sources */,
 				CE72F16623A42851000F7E5A /* ImageData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
