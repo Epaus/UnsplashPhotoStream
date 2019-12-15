@@ -64,9 +64,14 @@ extension MainController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId,
                                                  for: indexPath) as! ImageListTableViewCell 
                cell.selectionStyle = .default
-        cell.model = model 
+        cell.model = model
+        cell.thumbnailPhotoView.getImage(name: model.thumbnailURL ?? "")
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("WhooHoo last thing to do")
     }
 }
 //MARK: NetworkManagerDelegate
