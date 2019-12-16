@@ -169,44 +169,20 @@ class NetworkManager {
         do {
             jsonResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.init(rawValue: 0))
             let jResponse = jsonResponse as? [String: Any]
+            let imageArray = [ImageModel]()
+            let results = jResponse?["results"] 
             
-            
-            
-            var imageArray = [ImageModel]()
-            
-
-            
-            let total = jResponse?["total"]
-            print("total = ", total)
-            let total_pages = jResponse?["totalPages"]
-            print("total_pages = ", total_pages)
-            let results = jResponse?["results"] as? Any
-            
-            print(results)
             do {
-            let data = try JSONSerialization.data(withJSONObject: results, options: [])
-               return self.parseJSON(data)
-//             for data in results   {
-//
-//                           let id = data.id
-//                           let description = data.description
-//                           let alt_description = data.alt_description
-//                           let url = data.urls
-//                           let regular = url.regular
-//                           let thumbnail = url.thumb
-//                           let likes = data.likes
-//
-//                           let image = ImageModel(id: id, description: description, alt_description: alt_description, regularURL: regular, thumbnailURL: thumbnail, likes: likes)
-//
-//                           imageArray.append(image)
-//                       }
+                let data = try JSONSerialization.data(withJSONObject: results as Any, options: [])
+                return self.parseJSON(data)
+                
             } catch  {
-                 print(error.localizedDescription)
+                 os_log("JSONSerialization error %@",error.localizedDescription)
             }
             return imageArray
             
         } catch {
-            print(error.localizedDescription)
+            os_log("JSONSerialization error %@",error.localizedDescription)
         }
         
         return nil
