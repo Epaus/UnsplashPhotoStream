@@ -35,14 +35,14 @@ class MainController: UIViewController {
         imageList = notification.object as! [ImageModel]
        
         DispatchQueue.main.async {
-            if self.imageList.count > 0 {
-                self.tableView.reloadData()
-            } else {
+            if self.imageList.count == 0 {
                 let alert = self.createAlertController(title: "No Images Found", message: "No images match your search. \nPlease try again.")
                 self.present(alert, animated: true, completion: nil)
+                guard let nManager = self.networkManager else { return }
+                self.imageList = nManager.prevImageList
             }
+            self.tableView.reloadData()
             self.activityIndicator.hideActivityIndicator()
-            
         }
     }
 }

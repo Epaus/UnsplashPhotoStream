@@ -46,6 +46,8 @@ class NetworkManager {
     var method: Method { return .get }
     private var task: URLSessionDataTask?
     var searchParameter = String()
+    var prevSearchParameter = String()
+    var prevImageList = [ImageModel]()
     
     var models:  [ImageModel] = [] {
         didSet {
@@ -56,13 +58,13 @@ class NetworkManager {
     func fetchSearchText(searchText: String) {
         
         if searchText != "" {
+            prevSearchParameter = searchParameter
             searchParameter = searchText
             endpoint = "/search/photos"
         } else {
             searchParameter = ""
             endpoint = "/photos"
         }
-       
         performRequest(with: splashURL)
     }
     func performRequest(with urlString: String ) {
@@ -77,13 +79,12 @@ class NetworkManager {
         let session = URLSession.shared
         task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             if let jsonData = data {
+                 self.prevImageList = self.models
                 if self.searchParameter == "" {
                     self.models  = self.parseJSON(jsonData) ?? [ImageModel]()
                 } else {
                     self.models = self.parseOuterResponse(data: jsonData) ?? self.models
                 }
-                
-               
             }
         })
         task?.resume()
