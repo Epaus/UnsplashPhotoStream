@@ -25,6 +25,7 @@
 		CEF12CF123A6A46A00E4C655 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CF023A6A46A00E4C655 /* UIView.swift */; };
 		CEF12CF423A6A74E00E4C655 /* ImageDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CF323A6A74E00E4C655 /* ImageDisplayController.swift */; };
 		CEF12CF623A6D06800E4C655 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CF523A6D06800E4C655 /* ActivityIndicatorView.swift */; };
+		CEF12D3723A7E27900E4C655 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12D3623A7E27900E4C655 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		CEF12CF023A6A46A00E4C655 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CEF12CF323A6A74E00E4C655 /* ImageDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDisplayController.swift; sourceTree = "<group>"; };
 		CEF12CF523A6D06800E4C655 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		CEF12D3623A7E27900E4C655 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				CE72F16E23A446A6000F7E5A /* UIImageView.swift */,
 				CEF12CE123A5699B00E4C655 /* Notification-Name.swift */,
 				CEF12CF023A6A46A00E4C655 /* UIView.swift */,
+				CEF12D3623A7E27900E4C655 /* UIViewController.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF12D3723A7E27900E4C655 /* UIViewController.swift in Sources */,
 				CE72F16223A427D2000F7E5A /* NetworkManager.swift in Sources */,
 				CEF12CE623A5829300E4C655 /* Constants.swift in Sources */,
 				CEF12CE423A57A9900E4C655 /* ImageListTableViewCell.swift in Sources */,

@@ -34,19 +34,14 @@ enum QueryType {
        case path
    }
 
-protocol NetworkManagerDelegate {
-    func didUpdateImages( imageModels: [ImageModel])
-    func didFailUpdate(error: Error)
-}
-
 class NetworkManager {
     static let shared = NetworkManager()
     let splashURL = "https://api.unsplash.com"
-    var endpoint = "/photos" //"/collections/317099/photos"
+    var endpoint = "/photos" 
     var type: QueryType { return .path }
     var timeoutInterval = 30.0
     
-    // accessKey should be store in a config file - but first things first
+    // accessKey should be stored in a config file - but first things first
     var accessKey = "479b3f025820451936d039e20383dde0bfefac1bad05a06276e348d0fcb36f09"
     var method: Method { return .get }
     private var task: URLSessionDataTask?
@@ -57,7 +52,6 @@ class NetworkManager {
             NotificationCenter.default.post(name: .ImageModelListUpdatedNotification, object: models )
         }
     }
-    var delegate: NetworkManagerDelegate?
 
     func fetchSearchText(searchText: String) {
         
@@ -203,7 +197,7 @@ class NetworkManager {
             return imageArray
             
         } catch {
-            delegate?.didFailUpdate(error: error)
+            os_log("parseJSON error %@",error.localizedDescription)
             return nil
         }
     }

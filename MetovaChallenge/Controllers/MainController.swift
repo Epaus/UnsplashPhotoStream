@@ -27,6 +27,7 @@ class MainController: UIViewController {
         networkManager = NetworkManager.shared
         tableView.delegate = self
         tableView.dataSource = self
+        searchTextField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(updateTable), name:.ImageModelListUpdatedNotification, object: nil)
     }
     
@@ -34,8 +35,14 @@ class MainController: UIViewController {
         imageList = notification.object as! [ImageModel]
        
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            if self.imageList.count > 0 {
+                self.tableView.reloadData()
+            } else {
+                let alert = self.createAlertController(title: "No Images Found", message: "No images match your search. \nPlease try again.")
+                self.present(alert, animated: true, completion: nil)
+            }
             self.activityIndicator.hideActivityIndicator()
+            
         }
     }
 }
@@ -84,17 +91,6 @@ extension MainController: UITableViewDataSource {
         })
     }
 
-}
-
-//MARK: NetworkManagerDelegate
-extension MainController: NetworkManagerDelegate {
-    func didUpdateImages(imageModels: [ImageModel]) {
-        print(imageModels)
-    }
-    
-    func didFailUpdate(error: Error) {
-        os_log("update failed with error: %@", error.localizedDescription)
-    }
 }
 
 //MARK: UITextFieldDelegate
