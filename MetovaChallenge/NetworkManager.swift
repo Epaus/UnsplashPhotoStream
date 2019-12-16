@@ -105,11 +105,8 @@ class NetworkManager {
         
         var parameters = ["per_page":30, "page":1 ] as [String : Any]
         if searchParameter.count > 0 {
-            print("searchParameter = ",searchParameter)
             parameters["query"] = searchParameter
         }
-       
-        print(parameters)
         
         guard let url = prepareURLComponents()?.url else {
             throw RequestError.invalidURL
@@ -118,7 +115,6 @@ class NetworkManager {
         switch type {
         case .body:
             var mutableRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
-                print("parameters = ", parameters)
                 mutableRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
                
             
@@ -139,17 +135,13 @@ class NetworkManager {
            var query = ""
            parameters?.forEach { key, value in
                let encodedValue: String
-               print("value = ", value)
+             
                if let value = value as? String {
                    encodedValue = urlEncoded ? value.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? "" : value
                } else {
                    encodedValue = "\(value)"
                }
-               print("query = ", query)
-               print("key = ", key)
-               print("encodedValue = ",encodedValue)
                query = "\(query)\(key)=\(encodedValue)&"
-               print("query = ", query)
            }
            
            return query
@@ -170,7 +162,7 @@ class NetworkManager {
             jsonResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.init(rawValue: 0))
             let jResponse = jsonResponse as? [String: Any]
             let imageArray = [ImageModel]()
-            let results = jResponse?["results"] 
+            let results = jResponse?["results"]
             
             do {
                 let data = try JSONSerialization.data(withJSONObject: results as Any, options: [])
