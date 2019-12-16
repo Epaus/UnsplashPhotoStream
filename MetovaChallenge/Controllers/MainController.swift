@@ -82,13 +82,13 @@ extension MainController: UITableViewDataSource {
         
         let imageDisplay = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageDisplay") as! ImageDisplayController
         imageDisplay.imageURL = url
-        let cell = tableView.cellForRow(at: indexPath)
         self.present(imageDisplay, animated: false, completion: {
             if url.count > 0 {
                 imageDisplay.activityIndicator.showActivityIndicator(uiView: imageDisplay.view)
                 imageDisplay.imageView.getImage(name: url)
                    }
         })
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
