@@ -22,7 +22,6 @@
 		CEF12CE223A5699B00E4C655 /* Notification-Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE123A5699B00E4C655 /* Notification-Name.swift */; };
 		CEF12CE423A57A9900E4C655 /* ImageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE323A57A9900E4C655 /* ImageListTableViewCell.swift */; };
 		CEF12CE623A5829300E4C655 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE523A5829300E4C655 /* Constants.swift */; };
-		CEF12CEF23A5C5EB00E4C655 /* ActivityIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CEE23A5C5EB00E4C655 /* ActivityIndicatorProtocol.swift */; };
 		CEF12CF123A6A46A00E4C655 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CF023A6A46A00E4C655 /* UIView.swift */; };
 		CEF12CF423A6A74E00E4C655 /* ImageDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CF323A6A74E00E4C655 /* ImageDisplayController.swift */; };
 		CEF12CF623A6D06800E4C655 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CF523A6D06800E4C655 /* ActivityIndicatorView.swift */; };
@@ -67,7 +66,6 @@
 		CEF12CE123A5699B00E4C655 /* Notification-Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification-Name.swift"; sourceTree = "<group>"; };
 		CEF12CE323A57A9900E4C655 /* ImageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListTableViewCell.swift; sourceTree = "<group>"; };
 		CEF12CE523A5829300E4C655 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CEF12CEE23A5C5EB00E4C655 /* ActivityIndicatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorProtocol.swift; sourceTree = "<group>"; };
 		CEF12CF023A6A46A00E4C655 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CEF12CF323A6A74E00E4C655 /* ImageDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDisplayController.swift; sourceTree = "<group>"; };
 		CEF12CF523A6D06800E4C655 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 		CEF12CEB23A5C58700E4C655 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CEF12CEE23A5C5EB00E4C655 /* ActivityIndicatorProtocol.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -359,7 +356,6 @@
 				CEF12CE223A5699B00E4C655 /* Notification-Name.swift in Sources */,
 				CEE9543423A2D3FF00DBD9CC /* AppDelegate.swift in Sources */,
 				CEE9543623A2D3FF00DBD9CC /* SceneDelegate.swift in Sources */,
-				CEF12CEF23A5C5EB00E4C655 /* ActivityIndicatorProtocol.swift in Sources */,
 				CE72F16623A42851000F7E5A /* ImageData.swift in Sources */,
 				CEF12CF623A6D06800E4C655 /* ActivityIndicatorView.swift in Sources */,
 			);

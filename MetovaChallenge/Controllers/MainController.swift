@@ -75,6 +75,7 @@ extension MainController: UITableViewDataSource {
         
         let imageDisplay = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageDisplay") as! ImageDisplayController
         imageDisplay.imageURL = url
+        let cell = tableView.cellForRow(at: indexPath)
         self.present(imageDisplay, animated: false, completion: {
             if url.count > 0 {
                 imageDisplay.activityIndicator.showActivityIndicator(uiView: imageDisplay.view)
@@ -101,11 +102,8 @@ extension MainController: UITextFieldDelegate {
     
     @IBAction func searchButtonPressed(_ sender: Any) {
         searchTextField.endEditing(true)
-        guard let nManager = networkManager else { return }
-        if let searchText = searchTextField.text {
-            let text = searchText.replacingOccurrences(of: " ", with: "-")
-            nManager.fetchSearchText(searchText: text)
-        }
+        searchText()
+        searchTextField.text = ""
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -118,32 +116,15 @@ extension MainController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        searchText()
         searchTextField.text = ""
+    }
+    
+    func searchText() {
+        guard let nManager = networkManager else { return }
+        if let searchText = searchTextField.text {
+            nManager.fetchSearchText(searchText: searchText)
+        }
     }
 }
 
-//MARK: ActivityIndicatorProtocol
-//extension MainController: ActivityIndicatorProtocol {
-//
-//    func showActivityIndicator(uiView: UIView) {
-//
-//          let blurEffect = UIBlurEffect(style: .light)
-//          blurView = UIVisualEffectView(effect: blurEffect)
-//          blurView.frame = uiView.frame
-//          blurView.center = uiView.center
-//
-//          activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
-//          activityIndicator.style = UIActivityIndicatorView.Style.large
-//          activityIndicator.center = uiView.center
-//          activityIndicator.color = .darkGray
-//
-//          view.addSubview(blurView)
-//          view.addSubview(activityIndicator)
-//          activityIndicator.startAnimating()
-//      }
-//
-//      func hideActivityIndicator() {
-//          activityIndicator.stopAnimating()
-//          blurView.removeFromSuperview()
-//      }
-//}

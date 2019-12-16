@@ -8,6 +8,31 @@
 
 import Foundation
 import UIKit
+import os.log
+
+enum RequestError: Error {
+    case invalidURL, noHTTPResponse, http(status: Int)
+
+    var localizedDescription: String {
+        switch self {
+        case .invalidURL:
+            return "Invalid URL."
+        case .noHTTPResponse:
+            return "Not a HTTP response."
+        case .http(let status):
+            return "HTTP error: \(status)."
+        }
+    }
+}
+
+enum Method: String {
+    case get, post, put, delete
+}
+
+enum QueryType {
+       case body
+       case path
+   }
 
 protocol NetworkManagerDelegate {
     func didUpdateImages( imageModels: [ImageModel])
@@ -16,37 +41,122 @@ protocol NetworkManagerDelegate {
 
 class NetworkManager {
     static let shared = NetworkManager()
+    let splashURL = "https://api.unsplash.com"
+    var endpoint = "/photos" //"/collections/317099/photos"
+    var type: QueryType { return .path }
+    var timeoutInterval = 30.0
+    
+    // accessKey should be store in a config file - but first things first
+    var accessKey = "479b3f025820451936d039e20383dde0bfefac1bad05a06276e348d0fcb36f09"
+    var method: Method { return .get }
+    private var task: URLSessionDataTask?
+    var searchParameter = String()
+    
     var models:  [ImageModel] = [] {
         didSet {
             NotificationCenter.default.post(name: .ImageModelListUpdatedNotification, object: models )
         }
     }
     var delegate: NetworkManagerDelegate?
-    let unsplashURL = "https://api.unsplash.com/photos/?client_id=479b3f025820451936d039e20383dde0bfefac1bad05a06276e348d0fcb36f09"
-    
+
     func fetchSearchText(searchText: String) {
-        var urlString = "\(unsplashURL)"
+        
         if searchText != "" {
-            urlString = urlString + String("&q=\(searchText)")
+            searchParameter = searchText
+            endpoint = "/search/photos"
+        } else {
+            searchParameter = ""
+            endpoint = "/photos"
         }
-        performRequest(with: urlString)
+       
+        performRequest(with: splashURL)
+    }
+    func performRequest(with urlString: String ) {
+        guard var request = try? prepareURLRequest() else {
+            os_log("failed to prepare URLRequest")
+            return
+        }
+        
+        request.allHTTPHeaderFields = prepareHeaders()
+        request.httpMethod = method.rawValue
+        
+        let session = URLSession.shared
+        task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+            if let jsonData = data {
+                self.models  = self.parseJSON(jsonData) ?? [ImageModel]()
+            }
+        })
+        task?.resume()
     }
     
-    func performRequest(with urlString: String) {
-        if let url = URL(string: urlString) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if  error != nil  {
-                    self.delegate?.didFailUpdate(error: error!)
-                    return
-                }
-                if let jsonData = data {
-                    self.models  = self.parseJSON(jsonData) ?? [ImageModel]()
-                }
-            }
-            task.resume()
+    func prepareHeaders() -> [String: String]? {
+           var headers = [String: String]()
+           headers["Authorization"] = "Client-ID \(accessKey)"
+           return headers
+       }
+    
+    func prepareURLRequest() throws -> URLRequest {
+        
+        var parameters = ["per_page":30, "page":1 ] as [String : Any]
+        if searchParameter.count > 0 {
+            print("searchParameter = ",searchParameter)
+            parameters["query"] = searchParameter
+        }
+       
+        print(parameters)
+        
+        guard let url = prepareURLComponents()?.url else {
+            throw RequestError.invalidURL
+        }
+        
+        switch type {
+        case .body:
+            var mutableRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
+                print("parameters = ", parameters)
+                mutableRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+               
+            
+            return mutableRequest
+
+        case .path:
+            var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+            components.query = queryParameters(parameters)
+            let urlRequest = URLRequest(url: components.url!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
+            return urlRequest
         }
     }
+    
+    private func queryParameters(_ parameters: [String: Any]?, urlEncoded: Bool = false) -> String {
+           var allowedCharacterSet = CharacterSet.alphanumerics
+           allowedCharacterSet.insert(charactersIn: ".-_")
+
+           var query = ""
+           parameters?.forEach { key, value in
+               let encodedValue: String
+               print("value = ", value)
+               if let value = value as? String {
+                   encodedValue = urlEncoded ? value.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? "" : value
+               } else {
+                   encodedValue = "\(value)"
+               }
+               print("query = ", query)
+               print("key = ", key)
+               print("encodedValue = ",encodedValue)
+               query = "\(query)\(key)=\(encodedValue)&"
+               print("query = ", query)
+           }
+           
+           return query
+       }
+    
+    func prepareURLComponents() -> URLComponents? {
+        guard let apiURL = URL(string: self.splashURL) else {
+               return nil
+           }
+           var urlComponents = URLComponents(url: apiURL, resolvingAgainstBaseURL: true)
+           urlComponents?.path = endpoint
+           return urlComponents
+       }
     
     func parseJSON(_ imageData: Data) -> [ImageModel]? {
         var imageArray = [ImageModel]()
@@ -54,6 +164,7 @@ class NetworkManager {
         do {
             let decodedData = try decoder.decode([ImageData].self, from: imageData)
             for data in decodedData {
+               
                 let id = data.id
                 let description = data.description
                 let alt_description = data.alt_description
@@ -74,7 +185,4 @@ class NetworkManager {
             return nil
         }
     }
-    
-    
-    
 }

@@ -22,3 +22,6 @@ struct URLData : Codable {
     var thumb: String?
 }
 
+struct Results : Codable {
+    var array: [ImageData]
+}
