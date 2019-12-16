@@ -83,7 +83,13 @@ class NetworkManager {
         let session = URLSession.shared
         task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             if let jsonData = data {
-                self.models  = self.parseJSON(jsonData) ?? [ImageModel]()
+                if self.searchParameter == "" {
+                    self.models  = self.parseJSON(jsonData) ?? [ImageModel]()
+                } else {
+                    self.models = self.parseOuterResponse(data: jsonData) ?? self.models
+                }
+                
+               
             }
         })
         task?.resume()
@@ -157,6 +163,54 @@ class NetworkManager {
            urlComponents?.path = endpoint
            return urlComponents
        }
+    
+    func parseOuterResponse(data: Data) -> [ImageModel]? {
+        var jsonResponse:Any
+        do {
+            jsonResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.init(rawValue: 0))
+            let jResponse = jsonResponse as? [String: Any]
+            
+            
+            
+            var imageArray = [ImageModel]()
+            
+
+            
+            let total = jResponse?["total"]
+            print("total = ", total)
+            let total_pages = jResponse?["totalPages"]
+            print("total_pages = ", total_pages)
+            let results = jResponse?["results"] as? Any
+            
+            print(results)
+            do {
+            let data = try JSONSerialization.data(withJSONObject: results, options: [])
+               return self.parseJSON(data)
+//             for data in results   {
+//
+//                           let id = data.id
+//                           let description = data.description
+//                           let alt_description = data.alt_description
+//                           let url = data.urls
+//                           let regular = url.regular
+//                           let thumbnail = url.thumb
+//                           let likes = data.likes
+//
+//                           let image = ImageModel(id: id, description: description, alt_description: alt_description, regularURL: regular, thumbnailURL: thumbnail, likes: likes)
+//
+//                           imageArray.append(image)
+//                       }
+            } catch  {
+                 print(error.localizedDescription)
+            }
+            return imageArray
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return nil
+    }
     
     func parseJSON(_ imageData: Data) -> [ImageModel]? {
         var imageArray = [ImageModel]()

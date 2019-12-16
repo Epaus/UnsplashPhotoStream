@@ -16,12 +16,13 @@ struct ImageData : Codable {
     var likes: Int
 }
 
-
 struct URLData : Codable {
     var regular: String?
     var thumb: String?
 }
 
-struct Results : Codable {
-    var array: [ImageData]
+struct SearchResultData : Codable {
+    var total: Int
+    var totalPages: Int
+    var results: [ImageData]
 }
