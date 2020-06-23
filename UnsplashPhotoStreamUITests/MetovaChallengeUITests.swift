@@ -1,6 +1,6 @@
 //
-//  MetovaChallengeUITests.swift
-//  MetovaChallengeUITests
+//  UnsplashPhotoStreamUITests.swift
+//  UnsplashPhotoStreamUITests
 //
 //  Created by Estelle Paus on 12/12/19.
 //  Copyright © 2019 Paus Productions. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class MetovaChallengeUITests: XCTestCase {
+class UnsplashPhotoStreamUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

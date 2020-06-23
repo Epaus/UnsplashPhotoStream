@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MetovaChallenge.xcodeproj">
+      location = "self:/Users/epaus/iPhone/UnsplashPhotos/UnsplashPhotoStream.xcodeproj">
    </FileRef>
 </Workspace>

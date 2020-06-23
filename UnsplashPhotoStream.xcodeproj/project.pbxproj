@@ -17,8 +17,8 @@
 		CEE9543B23A2D3FF00DBD9CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE9543923A2D3FF00DBD9CC /* Main.storyboard */; };
 		CEE9544023A2D40300DBD9CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE9543F23A2D40300DBD9CC /* Assets.xcassets */; };
 		CEE9544323A2D40300DBD9CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE9544123A2D40300DBD9CC /* LaunchScreen.storyboard */; };
-		CEE9544E23A2D40300DBD9CC /* MetovaChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9544D23A2D40300DBD9CC /* MetovaChallengeTests.swift */; };
-		CEE9545923A2D40300DBD9CC /* MetovaChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9545823A2D40300DBD9CC /* MetovaChallengeUITests.swift */; };
+		CEE9544E23A2D40300DBD9CC /* UnsplashPhotoStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9544D23A2D40300DBD9CC /* UnsplashPhotoStreamTests.swift */; };
+		CEE9545923A2D40300DBD9CC /* UnsplashPhotoStreamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9545823A2D40300DBD9CC /* UnsplashPhotoStreamUITests.swift */; };
 		CEF12CE223A5699B00E4C655 /* Notification-Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE123A5699B00E4C655 /* Notification-Name.swift */; };
 		CEF12CE423A57A9900E4C655 /* ImageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE323A57A9900E4C655 /* ImageListTableViewCell.swift */; };
 		CEF12CE623A5829300E4C655 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF12CE523A5829300E4C655 /* Constants.swift */; };
@@ -34,14 +34,14 @@
 			containerPortal = CEE9542823A2D3FF00DBD9CC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CEE9542F23A2D3FF00DBD9CC;
-			remoteInfo = MetovaChallenge;
+			remoteInfo = UnsplashPhotoStream;
 		};
 		CEE9545523A2D40300DBD9CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CEE9542823A2D3FF00DBD9CC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CEE9542F23A2D3FF00DBD9CC;
-			remoteInfo = MetovaChallenge;
+			remoteInfo = UnsplashPhotoStream;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,7 +50,7 @@
 		CE72F16323A4281F000F7E5A /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		CE72F16523A42851000F7E5A /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		CE72F16E23A446A6000F7E5A /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		CEE9543023A2D3FF00DBD9CC /* MetovaChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetovaChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEE9543023A2D3FF00DBD9CC /* UnsplashPhotoStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashPhotoStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE9543323A2D3FF00DBD9CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE9543523A2D3FF00DBD9CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CEE9543723A2D3FF00DBD9CC /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -58,11 +58,11 @@
 		CEE9543F23A2D40300DBD9CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE9544223A2D40300DBD9CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEE9544423A2D40300DBD9CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEE9544923A2D40300DBD9CC /* MetovaChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetovaChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEE9544D23A2D40300DBD9CC /* MetovaChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetovaChallengeTests.swift; sourceTree = "<group>"; };
+		CEE9544923A2D40300DBD9CC /* UnsplashPhotoStreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnsplashPhotoStreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEE9544D23A2D40300DBD9CC /* UnsplashPhotoStreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashPhotoStreamTests.swift; sourceTree = "<group>"; };
 		CEE9544F23A2D40300DBD9CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEE9545423A2D40300DBD9CC /* MetovaChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetovaChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEE9545823A2D40300DBD9CC /* MetovaChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetovaChallengeUITests.swift; sourceTree = "<group>"; };
+		CEE9545423A2D40300DBD9CC /* UnsplashPhotoStreamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnsplashPhotoStreamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEE9545823A2D40300DBD9CC /* UnsplashPhotoStreamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashPhotoStreamUITests.swift; sourceTree = "<group>"; };
 		CEE9545A23A2D40300DBD9CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEF12CE123A5699B00E4C655 /* Notification-Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification-Name.swift"; sourceTree = "<group>"; };
 		CEF12CE323A57A9900E4C655 /* ImageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,9 +112,9 @@
 		CEE9542723A2D3FF00DBD9CC = {
 			isa = PBXGroup;
 			children = (
-				CEE9543223A2D3FF00DBD9CC /* MetovaChallenge */,
-				CEE9544C23A2D40300DBD9CC /* MetovaChallengeTests */,
-				CEE9545723A2D40300DBD9CC /* MetovaChallengeUITests */,
+				CEE9543223A2D3FF00DBD9CC /* UnsplashPhotoStream */,
+				CEE9544C23A2D40300DBD9CC /* UnsplashPhotoStreamTests */,
+				CEE9545723A2D40300DBD9CC /* UnsplashPhotoStreamUITests */,
 				CEE9543123A2D3FF00DBD9CC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -122,14 +122,14 @@
 		CEE9543123A2D3FF00DBD9CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEE9543023A2D3FF00DBD9CC /* MetovaChallenge.app */,
-				CEE9544923A2D40300DBD9CC /* MetovaChallengeTests.xctest */,
-				CEE9545423A2D40300DBD9CC /* MetovaChallengeUITests.xctest */,
+				CEE9543023A2D3FF00DBD9CC /* UnsplashPhotoStream.app */,
+				CEE9544923A2D40300DBD9CC /* UnsplashPhotoStreamTests.xctest */,
+				CEE9545423A2D40300DBD9CC /* UnsplashPhotoStreamUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CEE9543223A2D3FF00DBD9CC /* MetovaChallenge */ = {
+		CEE9543223A2D3FF00DBD9CC /* UnsplashPhotoStream */ = {
 			isa = PBXGroup;
 			children = (
 				CEE9543323A2D3FF00DBD9CC /* AppDelegate.swift */,
@@ -142,25 +142,25 @@
 				CEE9546623A2D47300DBD9CC /* Models */,
 				CEE9546823A2D4E600DBD9CC /* Additional Files */,
 			);
-			path = MetovaChallenge;
+			path = UnsplashPhotoStream;
 			sourceTree = "<group>";
 		};
-		CEE9544C23A2D40300DBD9CC /* MetovaChallengeTests */ = {
+		CEE9544C23A2D40300DBD9CC /* UnsplashPhotoStreamTests */ = {
 			isa = PBXGroup;
 			children = (
-				CEE9544D23A2D40300DBD9CC /* MetovaChallengeTests.swift */,
+				CEE9544D23A2D40300DBD9CC /* UnsplashPhotoStreamTests.swift */,
 				CEE9544F23A2D40300DBD9CC /* Info.plist */,
 			);
-			path = MetovaChallengeTests;
+			path = UnsplashPhotoStreamTests;
 			sourceTree = "<group>";
 		};
-		CEE9545723A2D40300DBD9CC /* MetovaChallengeUITests */ = {
+		CEE9545723A2D40300DBD9CC /* UnsplashPhotoStreamUITests */ = {
 			isa = PBXGroup;
 			children = (
-				CEE9545823A2D40300DBD9CC /* MetovaChallengeUITests.swift */,
+				CEE9545823A2D40300DBD9CC /* UnsplashPhotoStreamUITests.swift */,
 				CEE9545A23A2D40300DBD9CC /* Info.plist */,
 			);
-			path = MetovaChallengeUITests;
+			path = UnsplashPhotoStreamUITests;
 			sourceTree = "<group>";
 		};
 		CEE9546623A2D47300DBD9CC /* Models */ = {
@@ -220,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEE9542F23A2D3FF00DBD9CC /* MetovaChallenge */ = {
+		CEE9542F23A2D3FF00DBD9CC /* UnsplashPhotoStream */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEE9545D23A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "MetovaChallenge" */;
+			buildConfigurationList = CEE9545D23A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "UnsplashPhotoStream" */;
 			buildPhases = (
 				CEE9542C23A2D3FF00DBD9CC /* Sources */,
 				CEE9542D23A2D3FF00DBD9CC /* Frameworks */,
@@ -232,14 +232,14 @@
 			);
 			dependencies = (
 			);
-			name = MetovaChallenge;
-			productName = MetovaChallenge;
-			productReference = CEE9543023A2D3FF00DBD9CC /* MetovaChallenge.app */;
+			name = UnsplashPhotoStream;
+			productName = UnsplashPhotoStream;
+			productReference = CEE9543023A2D3FF00DBD9CC /* UnsplashPhotoStream.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CEE9544823A2D40300DBD9CC /* MetovaChallengeTests */ = {
+		CEE9544823A2D40300DBD9CC /* UnsplashPhotoStreamTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEE9546023A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "MetovaChallengeTests" */;
+			buildConfigurationList = CEE9546023A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "UnsplashPhotoStreamTests" */;
 			buildPhases = (
 				CEE9544523A2D40300DBD9CC /* Sources */,
 				CEE9544623A2D40300DBD9CC /* Frameworks */,
@@ -250,14 +250,14 @@
 			dependencies = (
 				CEE9544B23A2D40300DBD9CC /* PBXTargetDependency */,
 			);
-			name = MetovaChallengeTests;
-			productName = MetovaChallengeTests;
-			productReference = CEE9544923A2D40300DBD9CC /* MetovaChallengeTests.xctest */;
+			name = UnsplashPhotoStreamTests;
+			productName = UnsplashPhotoStreamTests;
+			productReference = CEE9544923A2D40300DBD9CC /* UnsplashPhotoStreamTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CEE9545323A2D40300DBD9CC /* MetovaChallengeUITests */ = {
+		CEE9545323A2D40300DBD9CC /* UnsplashPhotoStreamUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEE9546323A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "MetovaChallengeUITests" */;
+			buildConfigurationList = CEE9546323A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "UnsplashPhotoStreamUITests" */;
 			buildPhases = (
 				CEE9545023A2D40300DBD9CC /* Sources */,
 				CEE9545123A2D40300DBD9CC /* Frameworks */,
@@ -268,9 +268,9 @@
 			dependencies = (
 				CEE9545623A2D40300DBD9CC /* PBXTargetDependency */,
 			);
-			name = MetovaChallengeUITests;
-			productName = MetovaChallengeUITests;
-			productReference = CEE9545423A2D40300DBD9CC /* MetovaChallengeUITests.xctest */;
+			name = UnsplashPhotoStreamUITests;
+			productName = UnsplashPhotoStreamUITests;
+			productReference = CEE9545423A2D40300DBD9CC /* UnsplashPhotoStreamUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -296,7 +296,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CEE9542B23A2D3FF00DBD9CC /* Build configuration list for PBXProject "MetovaChallenge" */;
+			buildConfigurationList = CEE9542B23A2D3FF00DBD9CC /* Build configuration list for PBXProject "UnsplashPhotoStream" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -309,9 +309,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEE9542F23A2D3FF00DBD9CC /* MetovaChallenge */,
-				CEE9544823A2D40300DBD9CC /* MetovaChallengeTests */,
-				CEE9545323A2D40300DBD9CC /* MetovaChallengeUITests */,
+				CEE9542F23A2D3FF00DBD9CC /* UnsplashPhotoStream */,
+				CEE9544823A2D40300DBD9CC /* UnsplashPhotoStreamTests */,
+				CEE9545323A2D40300DBD9CC /* UnsplashPhotoStreamUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -369,7 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE9544E23A2D40300DBD9CC /* MetovaChallengeTests.swift in Sources */,
+				CEE9544E23A2D40300DBD9CC /* UnsplashPhotoStreamTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE9545923A2D40300DBD9CC /* MetovaChallengeUITests.swift in Sources */,
+				CEE9545923A2D40300DBD9CC /* UnsplashPhotoStreamUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,12 +386,12 @@
 /* Begin PBXTargetDependency section */
 		CEE9544B23A2D40300DBD9CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CEE9542F23A2D3FF00DBD9CC /* MetovaChallenge */;
+			target = CEE9542F23A2D3FF00DBD9CC /* UnsplashPhotoStream */;
 			targetProxy = CEE9544A23A2D40300DBD9CC /* PBXContainerItemProxy */;
 		};
 		CEE9545623A2D40300DBD9CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CEE9542F23A2D3FF00DBD9CC /* MetovaChallenge */;
+			target = CEE9542F23A2D3FF00DBD9CC /* UnsplashPhotoStream */;
 			targetProxy = CEE9545523A2D40300DBD9CC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -536,12 +536,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SV69BK44Z9;
-				INFOPLIST_FILE = MetovaChallenge/Info.plist;
+				INFOPLIST_FILE = UnsplashPhotoStream/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.MetovaChallenge";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.UnsplashPhotoStream";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -554,12 +554,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SV69BK44Z9;
-				INFOPLIST_FILE = MetovaChallenge/Info.plist;
+				INFOPLIST_FILE = UnsplashPhotoStream/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.MetovaChallenge";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.UnsplashPhotoStream";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -573,18 +573,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SV69BK44Z9;
-				INFOPLIST_FILE = MetovaChallengeTests/Info.plist;
+				INFOPLIST_FILE = UnsplashPhotoStreamTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.MetovaChallengeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.UnsplashPhotoStreamTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetovaChallenge.app/MetovaChallenge";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UnsplashPhotoStream.app/UnsplashPhotoStream";
 			};
 			name = Debug;
 		};
@@ -595,18 +595,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SV69BK44Z9;
-				INFOPLIST_FILE = MetovaChallengeTests/Info.plist;
+				INFOPLIST_FILE = UnsplashPhotoStream/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.MetovaChallengeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.UnsplashPhotoStreamTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetovaChallenge.app/MetovaChallenge";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UnsplashPhotoStream.app/UnsplashPhotoStream";
 			};
 			name = Release;
 		};
@@ -616,17 +616,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SV69BK44Z9;
-				INFOPLIST_FILE = MetovaChallengeUITests/Info.plist;
+				INFOPLIST_FILE = UnsplashPhotoStreamUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.MetovaChallengeUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.UnsplashPhotoStreamUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MetovaChallenge;
+				TEST_TARGET_NAME = UnsplashPhotoStream;
 			};
 			name = Debug;
 		};
@@ -636,24 +636,24 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SV69BK44Z9;
-				INFOPLIST_FILE = MetovaChallengeUITests/Info.plist;
+				INFOPLIST_FILE = UnsplashPhotoStreamUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.MetovaChallengeUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paus-Productions.UnsplashPhotoStreamUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MetovaChallenge;
+				TEST_TARGET_NAME = UnsplashPhotoStream;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CEE9542B23A2D3FF00DBD9CC /* Build configuration list for PBXProject "MetovaChallenge" */ = {
+		CEE9542B23A2D3FF00DBD9CC /* Build configuration list for PBXProject "UnsplashPhotoStream" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEE9545B23A2D40300DBD9CC /* Debug */,
@@ -662,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEE9545D23A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "MetovaChallenge" */ = {
+		CEE9545D23A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "UnsplashPhotoStream" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEE9545E23A2D40300DBD9CC /* Debug */,
@@ -671,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEE9546023A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "MetovaChallengeTests" */ = {
+		CEE9546023A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "UnsplashPhotoStreamTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEE9546123A2D40300DBD9CC /* Debug */,
@@ -680,7 +680,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEE9546323A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "MetovaChallengeUITests" */ = {
+		CEE9546323A2D40300DBD9CC /* Build configuration list for PBXNativeTarget "UnsplashPhotoStreamUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEE9546423A2D40300DBD9CC /* Debug */,

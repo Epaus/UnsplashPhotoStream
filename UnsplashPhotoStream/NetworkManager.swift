@@ -1,6 +1,6 @@
 //
 //  NetworkManager.swift
-//  MetovaChallenge
+//  UnsplashPhotoStream
 //
 //  Created by Estelle Paus on 12/13/19.
 //  Copyright © 2019 Paus Productions. All rights reserved.
