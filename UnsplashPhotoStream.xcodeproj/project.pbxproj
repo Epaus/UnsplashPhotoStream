@@ -12,7 +12,6 @@
 		CE72F16623A42851000F7E5A /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72F16523A42851000F7E5A /* ImageData.swift */; };
 		CE72F16F23A446A6000F7E5A /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72F16E23A446A6000F7E5A /* UIImageView.swift */; };
 		CEE9543423A2D3FF00DBD9CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9543323A2D3FF00DBD9CC /* AppDelegate.swift */; };
-		CEE9543623A2D3FF00DBD9CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9543523A2D3FF00DBD9CC /* SceneDelegate.swift */; };
 		CEE9543823A2D3FF00DBD9CC /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9543723A2D3FF00DBD9CC /* MainController.swift */; };
 		CEE9543B23A2D3FF00DBD9CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE9543923A2D3FF00DBD9CC /* Main.storyboard */; };
 		CEE9544023A2D40300DBD9CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE9543F23A2D40300DBD9CC /* Assets.xcassets */; };
@@ -52,7 +51,6 @@
 		CE72F16E23A446A6000F7E5A /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		CEE9543023A2D3FF00DBD9CC /* UnsplashPhotoStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashPhotoStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE9543323A2D3FF00DBD9CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEE9543523A2D3FF00DBD9CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CEE9543723A2D3FF00DBD9CC /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		CEE9543A23A2D3FF00DBD9CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEE9543F23A2D40300DBD9CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,8 +130,6 @@
 		CEE9543223A2D3FF00DBD9CC /* UnsplashPhotoStream */ = {
 			isa = PBXGroup;
 			children = (
-				CEE9543323A2D3FF00DBD9CC /* AppDelegate.swift */,
-				CEE9543523A2D3FF00DBD9CC /* SceneDelegate.swift */,
 				CEF12CEB23A5C58700E4C655 /* Protocols */,
 				CEF12CDE23A552AF00E4C655 /* Managers */,
 				CE72F16723A445FE000F7E5A /* Extensions */,
@@ -184,6 +180,7 @@
 		CEE9546823A2D4E600DBD9CC /* Additional Files */ = {
 			isa = PBXGroup;
 			children = (
+				CEE9543323A2D3FF00DBD9CC /* AppDelegate.swift */,
 				CEE9543F23A2D40300DBD9CC /* Assets.xcassets */,
 				CEE9544123A2D40300DBD9CC /* LaunchScreen.storyboard */,
 				CEE9544423A2D40300DBD9CC /* Info.plist */,
@@ -359,7 +356,6 @@
 				CEF12CF423A6A74E00E4C655 /* ImageDisplayController.swift in Sources */,
 				CEF12CE223A5699B00E4C655 /* Notification-Name.swift in Sources */,
 				CEE9543423A2D3FF00DBD9CC /* AppDelegate.swift in Sources */,
-				CEE9543623A2D3FF00DBD9CC /* SceneDelegate.swift in Sources */,
 				CE72F16623A42851000F7E5A /* ImageData.swift in Sources */,
 				CEF12CF623A6D06800E4C655 /* ActivityIndicatorView.swift in Sources */,
 			);

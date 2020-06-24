@@ -28,6 +28,7 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Unsplash Photos"
         activityIndicator.showActivityIndicator(uiView: self.view)
         networkManager = NetworkManager.shared
         tableView.delegate = self
@@ -83,15 +84,22 @@ extension MainController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let imageModel = imageList[indexPath.row]
         let url = imageModel.stripURL(url: imageModel.regularURL ?? "")
+        let title = imageModel.description
         
         let imageDisplay = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageDisplay") as! ImageDisplayController
         imageDisplay.imageURL = url
-        self.present(imageDisplay, animated: false, completion: {
-            if url.count > 0 {
+        imageDisplay.imageTitle = title
+        if url.count > 0 {
                 imageDisplay.activityIndicator.showActivityIndicator(uiView: imageDisplay.view)
                 imageDisplay.imageView.getImage(name: url)
                    }
-        })
+        self.navigationController?.pushViewController(imageDisplay, animated: true)
+//        self.present(imageDisplay, animated: false, completion: {
+//            if url.count > 0 {
+//                imageDisplay.activityIndicator.showActivityIndicator(uiView: imageDisplay.view)
+//                imageDisplay.imageView.getImage(name: url)
+//                   }
+//        })
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

@@ -12,14 +12,18 @@ class ImageDisplayController: UIViewController {
     
     var imageURL = String()
     lazy var activityIndicator = ActivityIndicatorView()
+    var imageTitle: String?
     
     @IBOutlet weak var imageView: UIImageView!
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(hideActivityIndicator), name:.ImageViewSetNotification, object: nil)
         self.view.addSubview(activityIndicator)
     }
+    
+
     
     @objc func hideActivityIndicator() {
         activityIndicator.hideActivityIndicator()
