@@ -19,6 +19,8 @@ class ImageDisplayController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = imageTitle ?? ""
+        self.navigationItem.largeTitleDisplayMode = .never
         NotificationCenter.default.addObserver(self, selector: #selector(hideActivityIndicator), name:.ImageViewSetNotification, object: nil)
         self.view.addSubview(activityIndicator)
     }

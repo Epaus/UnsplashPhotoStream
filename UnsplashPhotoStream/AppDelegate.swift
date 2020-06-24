@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main" )
         let navController = UINavigationController.init(rootViewController: mainController)
         if #available(iOS 13.0, *) {
-            navController.navigationBar.prefersLargeTitles = true
+            
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
             navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
