@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        networkManager.fetchSearchText(searchText: "")
+
         let mainController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main" )
 
         window?.rootViewController =  mainController

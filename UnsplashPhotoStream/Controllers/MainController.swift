@@ -21,6 +21,11 @@ class MainController: UIViewController {
     var imageList = [ImageModel]()
     
 // MARK: Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        searchText()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.showActivityIndicator(uiView: self.view)
@@ -28,7 +33,6 @@ class MainController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         searchTextField.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTable), name:.ImageModelListUpdatedNotification, object: nil)
     }
     
     @objc func updateTable(notification: Notification) {
@@ -116,10 +120,24 @@ extension MainController: UITextFieldDelegate {
         searchTextField.text = ""
     }
     
+    
     func searchText() {
         guard let nManager = networkManager else { return }
         if let searchText = searchTextField.text {
-            nManager.fetchSearchText(searchText: searchText)
+            nManager.fetchSearchText(searchText: searchText, completion: {results in
+                DispatchQueue.main.async(execute: {
+                    if results.count == 0 {
+                        let alert = self.createAlertController(title: "No Images Found", message: "No images match your search. \nPlease try again.")
+                        self.present(alert, animated: true, completion: nil)
+                        self.imageList = nManager.prevImageList
+                    } else {
+                        self.imageList = results
+                    }
+                    
+                     self.tableView.reloadData()
+                     self.activityIndicator.hideActivityIndicator()
+                })
+            })
         }
     }
 }

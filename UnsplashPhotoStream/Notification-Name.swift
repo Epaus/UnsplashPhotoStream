@@ -11,6 +11,5 @@ import Foundation
 import Foundation
 
 extension Notification.Name {
-    static let ImageModelListUpdatedNotification = Notification.Name("ImageModelListUpdatedNotification")
     static let ImageViewSetNotification = Notification.Name("ImageViewSetNotification")
 }

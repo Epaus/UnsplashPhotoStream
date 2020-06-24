@@ -13,7 +13,7 @@ class ImageDisplayController: UIViewController {
     var imageURL = String()
     lazy var activityIndicator = ActivityIndicatorView()
     
-    @IBOutlet weak var imageView: UIImageView! 
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

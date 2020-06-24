@@ -26,3 +26,17 @@ extension UIImageView {
         }).resume()
     }
 }
+
+
+/* save an image
+ let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+ if let filePath = paths.first?.appendingPathComponent("MyImageName.png") {
+     // Save image.
+     do {
+        try UIImagePNGRepresentation(image)?.write(to: filePath, options: .atomic)
+     }
+     catch {
+        // Handle the error
+     }
+ }
+ */

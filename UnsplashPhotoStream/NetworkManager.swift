@@ -49,13 +49,9 @@ class NetworkManager {
     var prevSearchParameter = String()
     var prevImageList = [ImageModel]()
     
-    var models:  [ImageModel] = [] {
-        didSet {
-            NotificationCenter.default.post(name: .ImageModelListUpdatedNotification, object: models )
-        }
-    }
+    var models:  [ImageModel]?
 
-    func fetchSearchText(searchText: String) {
+    func fetchSearchText(searchText: String, completion: @escaping (_ list: [ImageModel]) -> Void) {
         
         if searchText != "" {
             prevSearchParameter = searchParameter
@@ -65,9 +61,9 @@ class NetworkManager {
             searchParameter = ""
             endpoint = "/photos"
         }
-        performRequest(with: splashURL)
+        performRequest(with: splashURL, completion: completion)
     }
-    func performRequest(with urlString: String ) {
+    func performRequest(with urlString: String, completion: @escaping (_ list: [ImageModel]) -> Void) {
         guard var request = try? prepareURLRequest() else {
             os_log("failed to prepare URLRequest")
             return
@@ -79,12 +75,13 @@ class NetworkManager {
         let session = URLSession.shared
         task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             if let jsonData = data {
-                 self.prevImageList = self.models
+                self.prevImageList = self.models ?? [ImageModel]()
                 if self.searchParameter == "" {
                     self.models  = self.parseJSON(jsonData) ?? [ImageModel]()
                 } else {
                     self.models = self.parseOuterResponse(data: jsonData) ?? self.models
                 }
+                completion(self.models ?? [ImageModel]())
             }
         })
         task?.resume()
